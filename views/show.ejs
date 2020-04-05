@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">YelpMovies</p>
+            
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= movies.image %>">
+                <div class="caption-full">
+                    <h4><a><%=movies.name%></a></h4>
+                    <p><%= movies.description %></p>
+                    <p>
+                        <em>Submitted By <%= movies.author.username %></em>
+                    </p>
+                   
+            <div class="well">
+                <div class="text-right">
+					<% if (currentUser){ %>
+                            <form action="/movies/<%= movies._id%>?_method=DELETE" method="POST">
+	<button class="btn btn-danger">DELETE</button>
+</form>            
+                    <% } %>
+                </div>
+            </div>
+            
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/footer") %>
